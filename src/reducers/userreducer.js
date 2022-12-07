@@ -57,7 +57,6 @@ export default (state=defaultState, action={}) => {
 
     case 'SAVE_USER_REJECTED': {
       const data = action.payload.response.data;
-      // convert feathers error formatting to match client-side error formatting
       const { "name.first":first, "name.last":last, phone, email } = data.errors;
       const errors = { global: data.message, name: { first,last }, phone, email };
       return {
